@@ -78,15 +78,17 @@ def inference(model_name):
   results = np.squeeze(output_data)
 
   top_k = results.argsort()[-5:][::-1]
+  
+  """
   for i in top_k:
     if floating_model:
       print('{:08.6f}: {}'.format(float(results[i]), labels[i]))
     else:
       print('{:08.6f}: {}'.format(float(results[i] / 255.0), labels[i]))
+  """
+  print("send result")
 
-  print('time: {:.3f}ms'.format((stop_time - start_time) * 1000))
-
-  return 80.22, 4.2
+  return 80.22, stop_time - start_time
 
 if __name__ == '__main__':
   server_file = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
