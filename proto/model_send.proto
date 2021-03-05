@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package model_send;
+
+service FileServer {
+  rpc SendModel (stream Model) returns (Reply) {}
+}
+
+message Model {
+  string name = 1;
+  bytes buffer = 2;
+}
+
+message Reply {
+  float accuracy = 1;
+  float latency = 2;
+}
