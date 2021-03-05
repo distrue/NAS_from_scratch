@@ -94,7 +94,7 @@ if __name__ == '__main__':
       Servicer(),
       server_file
   )
-  server_file.add_insecure_port(f'[::]:{50000}')
+  server_file.add_insecure_port('[::]:50000')
   server_file.start()
 
   try:
